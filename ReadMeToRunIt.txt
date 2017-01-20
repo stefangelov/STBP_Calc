@@ -9,7 +9,6 @@
 	1.2. xlwings -> visit " http://xlwings.org/ " and 
 		" http://docs.xlwings.org/en/stable/installation.html ". 
 		Folow the instructions there :).
-		NOTE:  Correct version of xlwings is which will work: lxml-3.4.0.win32-py3.2.exe
 		
 2. Runing
 	Just open the '*.xlms' file, enter Your input data and press 'Calculate' button.
