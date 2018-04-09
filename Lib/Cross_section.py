@@ -5,10 +5,12 @@ class Cross:
         self.reinforcement = reinforcement
         self.notes = []
 
+
 class Circle(Cross):
     def __init__(self, forces, concrete, reinforcement, diameter):
         super().__init__(forces, concrete, reinforcement)
         self.diameter = diameter / 100 # covnert in meters
+
 
 class Concrete:
     def __init__(self, fck, fcd, fctd, eps_cu):
@@ -16,6 +18,7 @@ class Concrete:
         self.fcd = fcd
         self.fctd = fctd
         self.eps_cu = eps_cu
+
 
 class Reinforcement:
     def __init__(self, fyd, eps_ud, iter0_long_reinf, iter0_trans_reinf, cover, e_s_module):
@@ -25,6 +28,7 @@ class Reinforcement:
         self.iter0_trans_reinf = iter0_trans_reinf / 100
         self.cover = cover / 100 # covnert in meter
         self.e_s_module = e_s_module
+
 
 class Forces:
     def __init__(self, pressure, bending, shearing, torsion):

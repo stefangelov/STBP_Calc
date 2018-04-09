@@ -6,18 +6,12 @@ from Lib.Cross_section import Concrete, Reinforcement, Forces
 
 import os
 
-def insert_value():
-    # needet for xlwings work
-    wb=xl.Book.caller()
-
-    # hold sheet name
-    the_sheet = 'STBP_Sheet'
-
+# function for single section
+def single_section():
     # set current time near to Calculate button to check when was last calculation
     date_now = datetime.now()
     Range('M26').value = date_now
-    
-    
+
     # take force
     pressure = Range('B5').value
     bending = Range('B6').value
@@ -58,7 +52,6 @@ def insert_value():
 
     #TODO: if stbp_engine rice an exception handle it an show message in cell for Remarks
 
-
     the_reinforcement = calculated_cross_section.reinforcement_total()
     Range('J19').value = the_reinforcement[0]
     Range('J20').value = the_reinforcement[1]
@@ -70,8 +63,7 @@ def insert_value():
     Range('J27').value = the_reinforcement[4]
     Range('J28').value = the_reinforcement[6]
 
-
-    #Insert notes if have any
+    # Insert notes if have any
     notes = ''
     for note in calculated_cross_section.notes:
         if len(notes) < 1:
@@ -84,7 +76,6 @@ def insert_value():
     else:
         Range('P2').value = notes
 
-
     # insert 'not implemented' near to N Force and T Force because there isn't action for them yet
     Range('C5').value = ''
     Range('C8').value = ''
@@ -96,4 +87,4 @@ def insert_value():
 if __name__ == '__main__':
     path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'STBP_Calc.xlsm'))
     xl.Book.set_mock_caller(path)
-    insert_value()
+    single_section()
