@@ -1,1 +1,1 @@
-[-] Add beton cover for every section when calculate multiple sections.
+[-] Add concrete cover for every section when calculate multiple sections.
